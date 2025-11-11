@@ -1,4 +1,6 @@
 import initGame from "./use-cases/init-game/initGame";
+import { pedirCarta } from "./use-cases/pedir-carta/pedirCarta";
+import { valorCarta } from "./use-cases/valor-carta/valorCarta";
 
 (() => {
   "use strict";
@@ -22,22 +24,6 @@ import initGame from "./use-cases/init-game/initGame";
    * Funciones
    */
 
-  const pedirCarta = () => {
-    if (!mazoCartas.length) throw "Se acabaron las cartas.";
-
-    return mazoCartas.pop();
-  };
-
-  const valorCarta = (carta) => {
-    const puntosCarta = carta.substring(0, carta.length - 1);
-
-    return isNaN(puntosCarta)
-      ? puntosCarta === "A"
-        ? 11
-        : 10
-      : puntosCarta * 1;
-  };
-
   const acumularPuntos = (carta, turno) => {
     puntosJugadores[turno] += valorCarta(carta);
     tableroPuntos[turno].innerText = puntosJugadores[turno];
@@ -59,7 +45,7 @@ import initGame from "./use-cases/init-game/initGame";
 
   const turnoComputadora = (minPoints) => {
     do {
-      const carta = pedirCarta();
+      const carta = pedirCarta(mazoCartas);
 
       acumularPuntos(carta, puntosJugadores.length - 1);
       crearCartas(carta, puntosJugadores.length - 1);
@@ -103,7 +89,7 @@ import initGame from "./use-cases/init-game/initGame";
    */
 
   btnPedirCarta.addEventListener("click", () => {
-    const carta = pedirCarta();
+    const carta = pedirCarta(mazoCartas);
 
     acumularPuntos(carta, 0);
 
