@@ -1,10 +1,15 @@
 import _ from "underscore";
 
+/**
+ * Esta función crea un nuevo mazo de cartas.
+ * @param {Array<string>} mazoCartas
+ * @returns {Array<string>} Retorna el nuevo mazo de cartas ya barajeado.
+ */
 export const crearMazoCartas = (mazoCartas) => {
+  if (!mazoCartas) throw new Error("mazoCartas is a required parameter");
+
   const cartaTipos = ["C", "D", "H", "S"];
   const especiales = ["A", "J", "K", "Q"];
-
-  mazoCartas = [];
 
   for (let numeroCarta = 2; numeroCarta < 11; numeroCarta++) {
     for (let cartaTipo of cartaTipos) {

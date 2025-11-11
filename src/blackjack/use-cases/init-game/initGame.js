@@ -10,7 +10,7 @@ const initGame = (
   numJugadores = 2
 ) => {
   mazoCartas.length = 0;
-  mazoCartas.push(...createDeck());
+  mazoCartas.push(...createDeck(mazoCartas));
 
   puntosJugadores.length = 0;
   for (let jugadorIndex = 0; jugadorIndex < numJugadores; jugadorIndex++) {
