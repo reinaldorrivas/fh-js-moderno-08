@@ -1,6 +1,4 @@
-import initGame from "./use-cases/init-game/initGame";
-import { pedirCarta } from "./use-cases/pedir-carta/pedirCarta";
-import { valorCarta } from "./use-cases/valor-carta/valorCarta";
+import { valorCarta, pedirCarta, initGame } from "./use-cases";
 
 (() => {
   "use strict";

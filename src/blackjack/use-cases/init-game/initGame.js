@@ -1,6 +1,6 @@
 import { crearMazoCartas as createDeck } from "../crear-mazo-cartas/crearMazoCartas";
 
-const initGame = (
+export const initGame = (
   mazoCartas,
   puntosJugadores,
   contenedoresCartas,
@@ -28,5 +28,3 @@ const initGame = (
   btnPedirCarta.disabled = false;
   btnDetenerJuego.disabled = false;
 };
-
-export default initGame;
